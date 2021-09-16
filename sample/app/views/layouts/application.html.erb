@@ -4,6 +4,8 @@
   <title>RubyOnRails Auth0 Sample</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= yield :cdn_code %>
+  <%# Consider upgrading bootstrap to 4.x or 5.x since 3.x is now outdated %>
+  <%# Also, Rails 6 comes bundled by default with nodejs and webpack to handle frontend assets %>
   <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
   <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'application' %>

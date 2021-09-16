@@ -1,3 +1,4 @@
+# A minor issue, but this version should match the .ruby-version for the sake of consistency
 FROM ruby:2.7.1
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 RUN mkdir /myapp

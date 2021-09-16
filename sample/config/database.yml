@@ -13,6 +13,9 @@ test:
   timeout: 5000
   database: db/test.sqlite3
 
+# Warning: sqlite is NOT A PRODUCTION READY database and should never be used as such.
+# This is for demonstration purposes only,
+# for real applications use a robust database system, e.g: Postgres, MySQL, etc.
 production:
   adapter: sqlite3
   pool: 5

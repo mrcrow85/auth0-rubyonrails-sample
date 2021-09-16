@@ -1,6 +1,7 @@
 class Auth0Controller < ApplicationController
   def callback
-    # OmniAuth stores the informatin returned from Auth0 and the IdP in request.env['omniauth.auth'].
+    # Typo
+    # OmniAuth stores the information returned from Auth0 and the IdP in request.env['omniauth.auth'].
     # In this sample, you will pull the raw_info supplied from the id_token
     # If the id_token is needed, you can get it from session[:userinfo]['credentials']['id_token'].
     # Refer to https://github.com/auth0/omniauth-auth0#authentication-hash for complete information on 'omniauth.auth' contents.
@@ -29,10 +30,9 @@ class Auth0Controller < ApplicationController
       client_id: AUTH0_CONFIG['auth0_client_id']
     }
 
-    URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: to_query(request_params)).to_s
+    # No need to manually build the query params, #to_query already parses the hash into url friendly params
+    # And the values should never be nil since they come from config files
+    URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: request_params.to_query).to_s
   end
 
-  def to_query(hash)
-    hash.map { |k, v| "#{k}=#{CGI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
-  end
 end

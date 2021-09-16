@@ -7,7 +7,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     Rails.application.config.auth0['auth0_client_id'],
     Rails.application.config.auth0['auth0_client_secret'],
     Rails.application.config.auth0['auth0_domain'],
-    callback_path: '/auth/auth0/callback',
+    # Use the env variable defined on .env instead of hard coding it
+    callback_path: ENV['AUTH0_CALLBACK_URL'],
     authorize_params: {
       scope: 'openid profile email'
     }
