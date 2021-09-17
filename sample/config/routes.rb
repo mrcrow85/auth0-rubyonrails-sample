@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#show'
 
+  # The modern way to write routes is like:
+  # get '/dashboard', to: 'dashboard#show'
   get '/dashboard' => 'dashboard#show'
   get '/auth/auth0/callback' => 'auth0#callback'
   get '/auth/failure' => 'auth0#failure'
